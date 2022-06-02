@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Target : MonoBehaviour
 {
     private Rigidbody targetRb;
@@ -9,6 +10,8 @@ public class Target : MonoBehaviour
     private float maxSpeed = 4;
     private float maxTorque = 10;
     private float xRange = 10;
+    public AudioClip ClickSound;
+    private AudioSource audioSoure;
     private float ySpawnPos = 20;
     private GameManager gameManager;
     public int pointValue;
@@ -22,6 +25,7 @@ public class Target : MonoBehaviour
         targetRb.AddTorque(RandomTorque(), RandomTorque(), RandomTorque(), ForceMode.Impulse);
         transform.position = RandomSpawnPos();
         gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
+        audioSoure = gameObject.GetComponent<AudioSource>();
     }
 
     Vector3 RandomForce()
@@ -51,6 +55,7 @@ public class Target : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Destroy(gameObject);
+        audioSoure.PlayOneShot(ClickSound, 1f);
         if (!gameObject.CompareTag("Bad"))
         {
             gameManager.GameOver();
