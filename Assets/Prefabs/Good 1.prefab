@@ -124,7 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5870f191bf9a76444afce4e0e00ecb31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ClickSound: {fileID: 8300000, guid: aeca3690a558fd24c8b56e1f29aec825, type: 3}
+  clickSound: {fileID: -6866089808459333575}
   pointValue: 3
   explosionParticle: {fileID: 7303472089845130122, guid: 6cbc21f5e9162483993a2b84b14d5ac8,
     type: 3}

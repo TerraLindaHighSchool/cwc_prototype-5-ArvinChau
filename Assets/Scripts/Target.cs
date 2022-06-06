@@ -5,12 +5,13 @@ using UnityEngine;
 
 public class Target : MonoBehaviour
 {
+    
     private Rigidbody targetRb;
     private float minSpeed = 0;
     private float maxSpeed = 4;
     private float maxTorque = 10;
     private float xRange = 10;
-    public AudioClip ClickSound;
+    public AudioSource clickSound;
     private AudioSource audioSoure;
     private float ySpawnPos = 20;
     private GameManager gameManager;
@@ -55,7 +56,7 @@ public class Target : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Destroy(gameObject);
-        audioSoure.PlayOneShot(ClickSound, 1f);
+        audioSoure.Play();
         if (!gameObject.CompareTag("Bad"))
         {
             gameManager.GameOver();
